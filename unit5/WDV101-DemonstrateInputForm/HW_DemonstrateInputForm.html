@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>WDV101 Intro HTML and CSS</title>
+
+  <style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url("frontpage_background.jpg");
+}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #ebe6ab;
+  color: black;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #d1d1ca;
+}
+
+input[type=email]{
+  width: 300px;
+  height: 30px;
+}
+
+.container {
+  margin: auto;
+  width:800px;
+  border-radius: 5px;
+  background-color: #e6d4ec;
+  padding: 20px;
+  align-items: center;
+
+}
+.containerHeader{
+  margin: auto;
+  width:1000px;
+  border-radius: 5px;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  
+}
+
+
+
+  </style>
+
+</head>
+
+<body >
+  <header class="containerHeader">
+  <h1>WDV101 Intro HTML and CSS</h1>
+  <h2>UNIT 5 - Lesson 2 Server Side Forms</h2>
+  </header>
+
+  <div class="container">
+  <form id="form1" name="form1" method="post" action="../WDV101-DemonstrateInputForm/DemonstrateFormHandler.php" >
+
+    <legend style="text-align: center; font-size: 30px;">Contact</legend>
+    <!-- name and email-->
+    <p>
+      <label for="first_name">Name:</label>
+      <input type="text" name="first_name" id="first_name" />
+    </p>
+    <p>
+      <lable for="email_address"> Email:</lable>
+      <input type="email" id="email_address" name="email_address" placeholder="email@mail.com">
+    </p>
+
+    <!--Accademic Standing - radio -->
+    <p>Current Academic Standing:
+  <input type="radio" name="academicStanding" id="academicStanding" value="High School"/>
+  <label for="academicStanding ">High School</label>
+
+  <input type="radio" name="academicStanding" id="academicStanding" value="Freshman"/>
+  <label for="academicStanding ">Freshman</label>
+
+  <input type="radio" name="academicStanding" id="academicStanding" value="Sophomore"/>
+  <label for="academicStanding ">Sophomore</label>
+</p>
+
+    <!--Major - dropdown-->
+    <p>
+      <label for="selectedMajor"> Select your major:</label>
+      <select name="selectedMajor" id="selectedMajor">
+        <option value="">Choose you Major</option>
+        <option value="CIS">Computer Information Systems</option>
+        <option value="GRD">Graphic Design</option>
+        <option value="WDV"> Web Development</option>
+      </select>
+    </p>
+
+
+    <!--textarea-->  
+    <p>Leave a comment:</p>
+      <textarea rows="5" cols="50" name="comment" id="comment"></textarea>
+
+    <!--Checkbox-->
+    <input type="checkbox" name="contact" id="contact"  value="Program Information">
+      <label for="contact"> Please contact me with program information</label><br>
+
+    <input type="checkbox" name="contact" id="contact"  value="Program Advisor">
+      <label for="contact">I would like to contact an program advisor</label><br>
+
+
+    <p>
+      <input type="submit" name="button" id="button" value="Submit" />
+      <input type="reset" name="button2" id="button2" value="Reset" />
+    </p>
+
+  </form>
+</div>
+  <p>&nbsp;</p>
+</body>
+
+</html>
