@@ -44,17 +44,19 @@ if(isset($_POST['submit'])){
 if(isset($_POST['submit'])){
     echo "FORM HAS BEEN SUBMITTED!";
 
-    $eventName = $_POST['events_name'];
+    $eventName= $_POST['events_name'];
     $eventDesc = $_POST['events_description'];
     $eventPres = $_POST['events_presenter'];
 
+    $eventDate = $_POST['events_date'];
+    $eventTime = $_POST['events_times'];
 
     try{
     //connect to database    
         require 'dbConnect.php'; 
     //create the SQL statement
-        $sql = "INSERT INTO wdv341_events (events_name, events_description, events_presenter) 
-        VALUES (:eventName,:eventDesc,:eventPres)"; //name placeholders
+        $sql = "INSERT INTO wdv341_events (events_name, events_description, events_presenter, events_date, events_times) 
+        VALUES (:eventName,:eventDesc,:eventPres,:eventDate,:eventTime)"; //name placeholders
     //prepare the SQL statement   
         $stmt = $conn->prepare($sql);
         
@@ -62,6 +64,11 @@ if(isset($_POST['submit'])){
         $stmt->bindParam(':eventName' ,$eventName);
         $stmt->bindParam(':eventDesc' ,$eventDesc);
         $stmt->bindParam(':eventPres' ,$eventPres);
+
+        $stmt->bindParam(':eventDate' ,$eventDate);
+        $stmt->bindParam(':eventTime' ,$eventTime);
+
+        
     //execute the prepared statement
         $stmt->execute();
 
@@ -120,17 +127,29 @@ else{
     <form method="POST" action="inputEvent.php">
 
         <p>
-            <label for="event_name"> Event Name: </label>
+            <label for="events_name"> Event Name: </label>
             <input type="text" name="events_name" id="events_name">
         
         </p>
+
         <p>
             <label for="events_description">Event Description</label>
             <input type="text" name="events_description" id="events_description">
         </p>
+
         <p>
             <label for="events_presenter">Event Presenter</label>
             <input type="text" name="events_presenter" id="events_presenter">
+        </p>
+
+        <p>
+            <label for="events_date">Event Date</label>
+            <input type="date" name="events_date" id="events_date">
+        </p>
+
+        <p>
+            <label for="events_times">Event Time</label>
+            <input type="time" name="events_times" id="events_times">
         </p>
 
         <p class="formField">

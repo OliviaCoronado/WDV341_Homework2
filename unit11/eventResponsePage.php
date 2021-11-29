@@ -20,7 +20,7 @@ echo "<h3> You Entered a new Record with an id of $eventId. We will look that in
  
     require 'dbConnect.php';   //-connect to database
 
-    $sql = "SELECT events_name, events_description, events_presenter FROM wdv341_events WHERE events_id=:eventId";   //-create the SQL statement. -using SELECT with WHERE clause
+    $sql = "SELECT events_name, events_description, events_presenter, events_date, events_times FROM wdv341_events WHERE events_id=:eventId";   //-create the SQL statement. -using SELECT with WHERE clause
     $stmt = $conn->prepare($sql);     //-prepare the SQL statement 
     $stmt->bindParam(':eventId' ,$eventId);    //-bind parametters into the prepared statement
 
@@ -65,6 +65,8 @@ echo "<h3> You Entered a new Record with an id of $eventId. We will look that in
     <p>Event Name: <?php echo $eventRecord['events_name']; ?></p>   <!-- display the fields on the page as needed.-->
     <p>Event Description: <?php echo $eventRecord['events_description']; ?></p>  <!-- display the fields on the page as needed.-->
     <p>Event Description: <?php echo $eventRecord['events_presenter']; ?></p> <!-- display the fields on the page as needed.-->
-        
+
+    <p>Event Description: <?php echo $eventRecord['events_date']; ?></p>
+    <p>Event Description: <?php echo $eventRecord['events_times']; ?></p>  
     </body>
 </html>
